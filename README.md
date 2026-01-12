@@ -1,7 +1,8 @@
-
 # Health Tech Solutions - Task Management Dashboard (Frontend)
 
 Welcome to the frontend submission for the Health Tech Solutions technical assignment. This project is a **modern, responsive React application**, serving as the user interface for the Task Management System. It allows medical and operational staff to track tasks efficiently.
+
+> **Live Demo:** Access the online version here: [https://health-tech-frontend-production.up.railway.app/](https://health-tech-frontend-production.up.railway.app/)
 
 ## Overview
 
@@ -33,7 +34,7 @@ Clone the repository and install dependencies:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/DerrickNgigi/health-tech-frontend
 cd health-tech-frontend
 
 # Install dependencies
@@ -119,3 +120,5 @@ src/
 ---
 
 *Submitted for the Health Tech Solutions Practical Assignment.*
+
+---
