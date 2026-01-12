@@ -1,74 +1,106 @@
-# React + TypeScript + Vite
+Health Tech Solutions - Task Management Dashboard (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the frontend submission for the Health Tech Solutions technical assignment. This project is a modern, responsive React application built with TypeScript and Tailwind CSS. It serves as the user interface for the Task Management System, allowing medical and operational staff to track tasks efficiently.
 
-Currently, two official plugins are available:
+ Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This dashboard allows users to manage operational tasks (e.g., patient intake, equipment sanitization) with a focus on usability and visual clarity. It connects to the NestJS backend API to perform real-time CRUD operations.
 
-## React Compiler
+ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Framework: React (v18+)
 
-## Expanding the ESLint configuration
+Build Tool: Vite - For lightning-fast development and building.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Language: TypeScript - For type safety and better developer experience.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Styling: Tailwind CSS (v4) - For utility-first, responsive design.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Icons: Lucide React - Clean, consistent iconography.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+State Management: React Hooks (useState, useEffect).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Ensure you have the following installed on your machine:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# health-tech-frontend
+Node.js (v16 or higher)
+
+npm (Node Package Manager)
+
+Installation & Setup
+
+Clone the repository (if you haven't already):
+
+git clone <repository-url>
+cd health-tech-frontend
+
+Install dependencies:
+
+npm install
+
+
+Start the Development Server:
+
+npm run dev
+
+
+Open in Browser:
+Navigate to the URL shown in the terminal (usually http://localhost:5173).
+
+🔌 API Configuration (.env)
+
+You can switch between the Production API and your Local Backend using the .env file in the root directory.
+
+Open .env.
+
+To use Production (Default):
+
+VITE_API_BASE_URL=[https://health-tech-backend-production.up.railway.app/api/tasks](https://health-tech-backend-production.up.railway.app/api/tasks)
+
+
+To use Localhost:
+Comment out the production line and uncomment the local one:
+
+VITE_API_BASE_URL=http://localhost:3333/api/tasks
+
+
+Restart the server (npm run dev) after changing .env files.
+
+ Project Structure
+
+The project follows a modular architecture to separate UI components from business logic and API services.
+
+src/
+├── components/           # Reusable UI Elements ("Dumb" Components)
+│   ├── StatusBadge.tsx   # Visual indicator for task status (Pending/In Progress/Completed)
+│   ├── TaskCard.tsx      # Displays task details, due dates, and action buttons
+│   └── TaskFormModal.tsx # Form for creating and editing tasks
+│
+├── pages/                # Main Views ("Smart" Components)
+│   └── Dashboard.tsx     # Main controller: manages state, filtering, and data flow
+│
+├── services/             # API Layer
+│   └── api.ts            # Centralized fetch calls (reads from .env)
+│
+├── types/                # TypeScript Definitions
+│   └── task.ts           # Interfaces for Task data consistency
+│
+├── App.tsx               # Main entry component
+├── main.tsx              # Mounts the React app
+└── index.css             # Global styles & Tailwind imports
+
+
+ Key Features
+
+Visual Status Indicators: Color-coded badges make it easy to see task progress at a glance.
+
+Smart Due Dates: The dashboard automatically highlights overdue tasks in red to draw attention to urgent items.
+
+Filtering: Users can filter tasks by status (Pending, In Progress, Completed) or view all at once.
+
+Responsive Design: Fully optimized for desktops, tablets, and mobile devices.
+
+Optimistic UI: The interface updates immediately on delete actions for a snappy user experience.
+
+Submitted for the Health Tech Solutions Practical Assignment.
